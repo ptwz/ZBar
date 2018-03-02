@@ -60,7 +60,7 @@ typedef enum zbar_format_group_e {
 struct zbar_image_s {
     uint32_t format;            /* fourcc image format code */
     unsigned width, height;     /* image size */
-    const void *data;           /* image sample data */
+    void *data;           /* image sample data */
     unsigned long datalen;      /* allocated/mapped size of data */
     unsigned crop_x, crop_y;    /* crop rectangle */
     unsigned crop_w, crop_h;
@@ -75,6 +75,7 @@ struct zbar_image_s {
 
     unsigned seq;               /* page/frame sequence number */
     zbar_symbol_set_t *syms;    /* decoded result set */
+    int inverted;               /* has the image been inverted yet? */
 };
 
 /* description of an image format */

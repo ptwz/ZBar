@@ -681,7 +681,7 @@ extern void zbar_image_set_crop(zbar_image_t *image,
  * @note application image data will not be modified by the library
  */
 extern void zbar_image_set_data(zbar_image_t *image,
-                                const void *data,
+                                void *data,
                                 unsigned long data_byte_length,
                                 zbar_image_cleanup_handler_t *cleanup_hndlr);
 

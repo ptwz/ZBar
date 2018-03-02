@@ -42,13 +42,7 @@ processor_new (PyTypeObject *type,
                                     object_to_bool, &threaded))
         return(NULL);
 
-#ifdef WITH_THREAD
-    /* the processor creates a thread that calls back into python,
-     * so we must ensure that threads are initialized before attempting
-     * to manipulate the GIL (bug #3349199)
-     */
-    PyEval_InitThreads();
-#else
+#ifndef WITH_THREAD
     if(threaded > 0 &&
        PyErr_WarnEx(NULL, "threading requested but not available", 1))
         return(NULL);
