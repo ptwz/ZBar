@@ -138,7 +138,7 @@ inline void zbar_image_free_data (zbar_image_t *img)
 }
 
 void zbar_image_set_data (zbar_image_t *img,
-                          const void *data,
+                          void *data,
                           unsigned long len,
                           zbar_image_cleanup_handler_t *cleanup)
 {
